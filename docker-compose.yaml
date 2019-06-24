@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+  dart-server:
+    build:
+      context: ./
+      dockerfile: ./server/config/dart/Dockerfile
+    volumes:
+      # - ./server:/usr/local/app
+      - ./server/pubspec.yaml:/usr/local/app/pubspec.yaml
+      - ./server/lib:/usr/local/app/lib
+      - ./server/bin:/usr/local/app/bin
+    image: grpcweb/dart-server
+    ports:
+      - "9090:9090"
+    networks:
+      hello-world-network:
+        aliases:
+          - dart-server
+
+  envoy:
+    build:
+      context: ./
+      dockerfile: ./server/config/envoy/Dockerfile
+    image: grpcweb/envoy
+    ports:
+      - "8080:8080"
+    networks:
+      hello-world-network:
+        aliases:
+          - envoy
+    # links:
+    #   - dart-server
+
+networks:
+  hello-world-network:
