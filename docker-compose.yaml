@@ -6,7 +6,6 @@ services:
       context: ./
       dockerfile: ./server/config/dart/Dockerfile
     volumes:
-      # - ./server:/usr/local/app
       - ./server/pubspec.yaml:/usr/local/app/pubspec.yaml
       - ./server/lib:/usr/local/app/lib
       - ./server/bin:/usr/local/app/bin
@@ -29,8 +28,6 @@ services:
       hello-world-network:
         aliases:
           - envoy
-    # links:
-    #   - dart-server
 
 networks:
   hello-world-network:
