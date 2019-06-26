@@ -9,8 +9,12 @@ Both the server and client are written in Dart with an envoy proxy server.
 
 - Dart 2.3 ( current stable Dart version )
 - Docker
-- protocol buffer compiler
+- Protocol buffer compiler
     - See [install directions](#protoc-install)
+- Install Dart protoc plugin 
+    - `pub global activate protoc_plugin`
+- Intall Dart webdev plugin
+    - `pub global activate webdev`
 
 ### Setup
 
@@ -31,8 +35,6 @@ run "dart bin/server.dart" to start the server
 ### How to run client
 
 ```bash
-pub global activate webdev
-
 webdev serve web:9000
 ```
 
@@ -51,11 +53,12 @@ export PATH=$PATH:$HOME/protoc-3.8.0-osx-x86_64/bin
 ```
 
 For more on protocol buffers and Dart: https://developers.google.com/protocol-buffers/docs/darttutorial
+For the Dart gRPC quick start: https://grpc.io/docs/quickstart/dart/
 
 #### How generate new proto code
 
 ```bash
-./scripts/generate_code.sh
+./scripts/generate-code.sh
 ```
 
 This will automatically put the generated proto code in `./client/lib/src/generated` and `./server/lib/src/generated`.

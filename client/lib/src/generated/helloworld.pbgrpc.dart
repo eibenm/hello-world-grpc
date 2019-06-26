@@ -2,7 +2,7 @@
 //  Generated code. Do not modify.
 //  source: helloworld.proto
 ///
-// ignore_for_file: camel_case_types,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name
+// ignore_for_file: camel_case_types,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type
 
 import 'dart:async' as $async;
 
@@ -43,7 +43,7 @@ abstract class GreeterServiceBase extends $grpc.Service {
   }
 
   $async.Future<$0.HelloReply> sayHello_Pre(
-      $grpc.ServiceCall call, $async.Future request) async {
+      $grpc.ServiceCall call, $async.Future<$0.HelloRequest> request) async {
     return sayHello(call, await request);
   }
 
